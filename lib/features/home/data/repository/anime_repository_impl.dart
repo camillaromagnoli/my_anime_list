@@ -4,7 +4,6 @@ import 'package:multiple_result/multiple_result.dart';
 import 'package:my_anime_list/core/core.dart';
 import 'package:my_anime_list/features/home/data/model/model.dart';
 import 'package:my_anime_list/features/home/domain/domain.dart';
-import 'package:my_anime_list/features/home/domain/entities/anime.dart';
 
 @Injectable(as: AnimeRepository)
 class AnimeRepositoryImpl extends AnimeRepository {

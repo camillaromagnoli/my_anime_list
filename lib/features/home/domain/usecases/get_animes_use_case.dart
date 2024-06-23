@@ -1,6 +1,5 @@
 import 'package:injectable/injectable.dart';
 import 'package:multiple_result/multiple_result.dart';
-import 'package:my_anime_list/features/home/data/model/anime_model.dart';
 import 'package:my_anime_list/features/home/domain/entities/anime.dart';
 import 'package:my_anime_list/features/home/domain/repository/anime_repository.dart';
 

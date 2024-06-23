@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_anime_list/core/core.dart';
+import 'package:my_anime_list/core/design/widgets/app_bar.dart';
 import 'package:my_anime_list/features/home/domain/domain.dart';
 import 'package:my_anime_list/features/home/presentation/presentation.dart';
+
+import '../../../../core/design/widgets/loading.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -33,14 +36,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'My Anime List',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Colors.black,
+      appBar: const AnimeAppBar(
+        title: 'My Anime List',
+        automaticallyImplyLeading: false,
       ),
       body: BlocProvider(
         create: (_) => widget.animeCubit,
@@ -73,7 +71,7 @@ class _HomePageState extends State<HomePage> {
           builder: (context, state) {
             if (state.status == AnimeStatus.loading && page == 1) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: LoadingWidget(),
               );
             } else {
               return GridView.builder(
@@ -94,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                               extra: animes[index]);
                         });
                   } else {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: LoadingWidget());
                   }
                 },
               );
