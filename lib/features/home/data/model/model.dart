@@ -1,0 +1,10 @@
+export 'aired_model.dart';
+export 'anime_model.dart';
+export 'broadcast_model.dart';
+export 'data_model.dart';
+export 'image_type_model.dart';
+export 'images_model.dart';
+export 'items_model.dart';
+export 'pagination_model.dart';
+export 'title_model.dart';
+export 'trailer_model.dart';
