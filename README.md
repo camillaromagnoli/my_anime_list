@@ -35,6 +35,6 @@ Make sure you have the following installed:
    ```bash
    git clone https://github.com/camillaromagnoli/my_anime_list.git
    cd my-anime-list
-2.
+2. **Run the project**
   ```bash
   flutter run
