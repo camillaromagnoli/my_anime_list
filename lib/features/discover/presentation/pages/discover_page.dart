@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_anime_list/core/core.dart';
-import 'package:my_anime_list/core/design/widgets/app_bar.dart';
-import 'package:my_anime_list/features/home/domain/domain.dart';
-import 'package:my_anime_list/features/home/presentation/presentation.dart';
+import 'package:my_anime_list/features/discover/domain/domain.dart';
+import 'package:my_anime_list/features/discover/presentation/presentation.dart';
 
-import '../../../../core/design/widgets/loading.dart';
-
-class HomePage extends StatefulWidget {
-  const HomePage({
+class DiscoverPage extends StatefulWidget {
+  const DiscoverPage({
     required this.animeCubit,
     super.key,
   });
@@ -17,10 +14,10 @@ class HomePage extends StatefulWidget {
   final AnimeCubit animeCubit;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DiscoverPage> createState() => _DiscoverPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DiscoverPageState extends State<DiscoverPage> {
   ScrollController controller = ScrollController();
   int page = 1;
   List<Anime> animes = [];
@@ -36,10 +33,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AnimeAppBar(
-        title: 'My Anime List',
-        automaticallyImplyLeading: false,
-      ),
       body: BlocProvider(
         create: (_) => widget.animeCubit,
         child: BlocConsumer<AnimeCubit, AnimeState>(
@@ -74,27 +67,41 @@ class _HomePageState extends State<HomePage> {
                 child: LoadingWidget(),
               );
             } else {
-              return GridView.builder(
+              return CustomScrollView(
                 controller: controller,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 8.0,
-                  crossAxisSpacing: 8.0,
-                  childAspectRatio: 0.75,
-                ),
-                itemCount: animes.length + (isLoading ? 1 : 0),
-                itemBuilder: (context, index) {
-                  if (index < animes.length) {
-                    return AnimeItem(
-                        anime: animes[index],
-                        onTap: () {
-                          context.go(AppRoutePaths.animeDetails,
-                              extra: animes[index]);
-                        });
-                  } else {
-                    return const Center(child: LoadingWidget());
-                  }
-                },
+                slivers: [
+                  const AppSliverAppBar(
+                    title: 'Anime List',
+                  ),
+                  SliverGrid(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, // Number of columns in the grid
+                      mainAxisSpacing: 10.0,
+                      crossAxisSpacing: 10.0,
+                      childAspectRatio:
+                          0.75, // Aspect ratio of the items in the grid
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        if (index < animes.length) {
+                          return AnimeItem(
+                            anime: animes[index],
+                            onTap: () {
+                              context.go(
+                                AppRoutePaths.animeDetails,
+                                extra: animes[index],
+                              );
+                            },
+                          );
+                        } else {
+                          return const Center(child: LoadingWidget());
+                        }
+                      },
+                      childCount: animes.length + (isLoading ? 1 : 0),
+                    ),
+                  ),
+                ],
               );
             }
           },

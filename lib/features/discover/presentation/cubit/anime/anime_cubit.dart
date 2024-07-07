@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_anime_list/features/home/domain/entities/anime.dart';
-import 'package:my_anime_list/features/home/domain/usecases/get_animes_use_case.dart';
+import 'package:my_anime_list/features/discover/domain/entities/anime.dart';
+import 'package:my_anime_list/features/discover/domain/usecases/get_animes_use_case.dart';
 
 part 'anime_state.dart';
 

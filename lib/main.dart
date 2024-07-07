@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_anime_list/core/di/injection.dart';
 
-import 'core/routes/router.dart';
+import 'core/core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'My Anime List',
       theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.pure,
         useMaterial3: true,
       ),
     );

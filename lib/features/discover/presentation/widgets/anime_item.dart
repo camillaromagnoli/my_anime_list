@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_anime_list/features/home/domain/entities/anime.dart';
+import 'package:my_anime_list/features/discover/domain/entities/anime.dart';
 
 class AnimeItem extends StatelessWidget {
   const AnimeItem({

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:multiple_result/multiple_result.dart';
-import 'package:my_anime_list/features/home/domain/entities/anime.dart';
-import 'package:my_anime_list/features/home/domain/repository/anime_repository.dart';
+import 'package:my_anime_list/features/discover/domain/entities/anime.dart';
+import 'package:my_anime_list/features/discover/domain/repository/anime_repository.dart';
 
 abstract class GetAnimeUseCase {
   Future<Result<List<Anime>, Exception>> execute({required int page});

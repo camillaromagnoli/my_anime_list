@@ -12,11 +12,14 @@ import 'package:dio/dio.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../features/home/data/repository/anime_repository_impl.dart' as _i6;
-import '../../features/home/domain/domain.dart' as _i5;
-import '../../features/home/domain/repository/anime_repository.dart' as _i9;
-import '../../features/home/domain/usecases/get_animes_use_case.dart' as _i8;
-import '../../features/home/presentation/cubit/anime/anime_cubit.dart' as _i10;
+import '../../features/discover/data/repository/anime_repository_impl.dart'
+    as _i6;
+import '../../features/discover/domain/domain.dart' as _i5;
+import '../../features/discover/domain/repository/anime_repository.dart' as _i9;
+import '../../features/discover/domain/usecases/get_animes_use_case.dart'
+    as _i8;
+import '../../features/discover/presentation/cubit/anime/anime_cubit.dart'
+    as _i10;
 import '../adapters/network_adapter.dart' as _i4;
 import '../core.dart' as _i7;
 import 'injection.dart' as _i11;

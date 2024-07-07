@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:multiple_result/multiple_result.dart';
 import 'package:my_anime_list/core/core.dart';
-import 'package:my_anime_list/features/home/data/model/model.dart';
-import 'package:my_anime_list/features/home/domain/domain.dart';
+import 'package:my_anime_list/features/discover/data/model/model.dart';
+import 'package:my_anime_list/features/discover/domain/domain.dart';
 
 @Injectable(as: AnimeRepository)
 class AnimeRepositoryImpl extends AnimeRepository {
